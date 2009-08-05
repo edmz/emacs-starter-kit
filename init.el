@@ -17,6 +17,8 @@
 (add-to-list 'load-path dotfiles-dir)
 (add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit"))
 (add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit/jabber"))
+(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit/emacs-rails"))
+(add-to-list 'load-path (concat dotfiles-dir "/elpa-to-submit/rhtml"))
 
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
@@ -31,13 +33,21 @@
 (require 'uniquify)
 (require 'ansi-color)
 (require 'recentf)
+(require 'git)
+(require 'snippet)
+(require 'rhtml-mode)
+(require 'rails)
+(require 'session)
+
+(add-hook 'after-init-hook 'session-initialize)
+;; (require 'highlight-current-line)
 
 ;; backport some functionality to Emacs 22 if needed
 (require 'dominating-file)
 
 ;; this must be loaded before ELPA since it bundles its own
 ;; out-of-date js stuff. TODO: fix it to use ELPA dependencies
-(load "elpa-to-submit/nxhtml/autostart")
+;;(load "elpa-to-submit/nxhtml/autostart")
 
 ;; Load up ELPA, the package manager
 

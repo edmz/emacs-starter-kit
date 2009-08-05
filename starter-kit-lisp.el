@@ -8,8 +8,7 @@
 (define-key lisp-mode-shared-map (kbd "C-\\") 'lisp-complete-symbol)
 (define-key lisp-mode-shared-map (kbd "C-c v") 'eval-buffer)
 
-(defun turn-on-paredit ()
-  (paredit-mode +1))
+
 
 ;; (eval-after-load 'paredit
 ;;      ;; Not sure why paredit behaves this way with comments; it's annoying
@@ -29,7 +28,7 @@
 (add-hook 'emacs-lisp-mode-hook 'run-coding-hook)
 (add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
 (add-hook 'emacs-lisp-mode-hook 'idle-highlight)
-(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
+
 
 (defun esk-remove-elc-on-save ()
   "If you're saving an elisp file, likely the .elc is no longer valid."
@@ -54,7 +53,7 @@
   '(add-to-list 'ffip-patterns "*.clj"))
 
 ;; You might like this, but it's a bit disorienting at first:
-(add-hook 'clojure-mode-hook 'turn-on-paredit)
+;; (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
 (defun clojure-project (path)
   "Setup classpaths for a clojure project and starts a new SLIME session.
@@ -90,7 +89,7 @@ Kills existing SLIME session, if any."
 
 (add-hook 'scheme-mode-hook 'run-coding-hook)
 (add-hook 'scheme-mode-hook 'idle-highlight)
-(add-hook 'scheme-mode-hook 'turn-on-paredit)
+;;(add-hook 'scheme-mode-hook 'turn-on-paredit)
 (font-lock-add-keywords 'scheme-mode
 			'(("(\\|)" . 'esk-paren-face)))
 
@@ -98,7 +97,7 @@ Kills existing SLIME session, if any."
 
 (add-hook 'lisp-mode-hook 'run-coding-hook)
 (add-hook 'lisp-mode-hook 'idle-highlight)
-(add-hook 'lisp-mode-hook 'turn-on-paredit)
+;; (add-hook 'lisp-mode-hook 'turn-on-paredit)
 (font-lock-add-keywords 'lisp-mode
 			'(("(\\|)" . 'esk-paren-face)))
 

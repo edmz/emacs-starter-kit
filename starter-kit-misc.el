@@ -20,21 +20,27 @@
       font-lock-maximum-decoration t
       inhibit-startup-message t
       transient-mark-mode t
+      delete-selection-mode t
       color-theme-is-global t
       delete-by-moving-to-trash t
       shift-select-mode nil
       truncate-partial-width-windows nil
+      scroll-step 1
+      scroll-conservatively 10000
       uniquify-buffer-name-style 'forward
       whitespace-style '(trailing lines space-before-tab
                                   indentation space-after-tab)
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
+      ediff-split-window-function 'split-window-horizontally
       oddmuse-directory (concat dotfiles-dir "oddmuse")
       xterm-mouse-mode t
       save-place-file (concat dotfiles-dir "places"))
 
+(set-default 'truncate-lines t)
+
 ;; Set this to whatever browser you use
-;; (setq browse-url-browser-function 'browse-url-firefox)
+(setq browse-url-browser-function 'browse-url-firefox)
 ;; (setq browse-url-browser-function 'browse-default-macosx-browser)
 ;; (setq browse-url-browser-function 'browse-default-windows-browser)
 ;; (setq browse-url-browser-function 'browse-default-kde)
@@ -50,7 +56,7 @@
 (global-font-lock-mode t)
 
 ;; You really don't need this; trust me.
-(menu-bar-mode -1)
+(menu-bar-mode 1)
 
 ;; Save a list of recent files visited.
 (recentf-mode 1)
@@ -71,8 +77,8 @@
 (set-default 'indicate-empty-lines t)
 (set-default 'imenu-auto-rescan t)
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'text-mode-hook 'turn-on-flyspell)
+;;(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;;(add-hook 'text-mode-hook 'turn-on-flyspell)
 
 (defvar coding-hook nil
   "Hook that gets run on activation of any programming mode.")
@@ -89,10 +95,10 @@
                                         (concat dotfiles-dir "backups")))))
 
 ;; nxhtml stuff
-(setq mumamo-chunk-coloring 'submode-colored
-      nxhtml-skip-welcome t
-      indent-region-mode t
-      rng-nxml-auto-validate-flag nil)
+;; (setq mumamo-chunk-coloring 'submode-colored
+;;       nxhtml-skip-welcome t
+;;       indent-region-mode t
+;;       rng-nxml-auto-validate-flag nil)
 
 ;; Associate modes with file extensions
 
@@ -107,6 +113,7 @@
 ;; Default to unified diffs
 (setq diff-switches "-u")
 
+
 ;; Cosmetics
 
 (eval-after-load 'diff-mode
@@ -119,9 +126,9 @@
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
 
-(eval-after-load 'nxhtml
-  '(eval-after-load 'zenburn
-     '(set-face-background 'mumamo-background-chunk-submode "gray22")))
+;; (eval-after-load 'nxhtml
+;;   '(eval-after-load 'zenburn
+;;      '(set-face-background 'mumamo-background-chunk-submode "gray22")))
 
 (provide 'starter-kit-misc)
 ;;; starter-kit-misc.el ends here
