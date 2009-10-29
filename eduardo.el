@@ -182,6 +182,16 @@
 
 
 
+;;
+;; org mode
+;;
+(setq org-agenda-files (list "~/Documents/global.org"
+                             "~/Documents/Personal/donmenus-git/doc/donmenus.org"
+                             "~/Documents/Work/logical/genio/docs/genio.org"
+                             "~/Documents/Work/logical/logical.org"
+                             "~/Documents/Romarios/romarios.org"))
+
+
 (setq html-mode-hook 'turn-off-auto-fill)
 (setq html-text-hook 'turn-off-auto-fill)
 (setq xml-mode-hook 'turn-off-auto-fill)
