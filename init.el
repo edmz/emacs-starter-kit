@@ -35,12 +35,12 @@
 (require 'recentf)
 (require 'git)
 (require 'snippet)
-(require 'rhtml-mode)
-(require 'rails)
+;;(require 'rhtml-mode)
+;;(require 'rails)
 (require 'session)
 
 (add-hook 'after-init-hook 'session-initialize)
-;; (require 'highlight-current-line)
+(require 'highlight-current-line)
 
 ;; backport some functionality to Emacs 22 if needed
 (require 'dominating-file)
